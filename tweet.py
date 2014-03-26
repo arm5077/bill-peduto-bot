@@ -8,30 +8,36 @@ from config import *
 # Parser for tranforming Peduto schedule-speak into the lyric timbre of BillPedutoBot!
 def writeTweet( event ):
 	keywords = {
+		# Food 
 		"(?i)^(Coffee )?Meeting with ": "I'm meeting with %s",
-		"(?i)^(Telephone )?Interview with ": "I have an interview with %s",
-		"(?i)(conference call:|conference call) ": "I'll be on a conference call with %s",
-		"(?i)standing meeting: ": "I have a regularly-scheduled meeting with %s",
-		"(?i)^On air |Call-in |Call in ": "I'll be on air %s",
-		"(?i)^Telephone call: ": "I'm on the phone with %s",
-		"(?i) taping$": "I'm taping \"%s\"",
-		"(?i)^Press conference: ": "I'm holding a press conference on %s",
-		"(?i)^Press conference with ": "I'm holding a press conference with %s",
-		"(?i)^Attending ": "I'm attending %s",
-		"(?i)^(Speaking at |Speaking: )": "I'm speaking at %s",
-		"(?i)^Visit from ": "I'm hosting a vist from %s",
-		"(?i)^(Standing )?Weekly meeting ": "I have my weekly meeting %s",
-		"(?i) meeting?": "I'm going to a %s meeting",
-		"(?i) retreat?": "I'm holing up in a %s retreat",
-		"(?i) reception?": "I'm receptioning at a %s reception",
-		"(?i) luncheon?": "I'm eating at a %s luncheon",
+		"(?i) luncheon$": "I'm eating at a %s luncheon",
 		"(?i)^breakfast with ": "I'm having breakfast with %s",
 		"(?i)^lunch with ": "I'm having lunch with %s",
 		"(?i)^dinner with ": "I'm having dinner with %s",
+		# Meetings
+		"(?i)^standing meeting: ": "I have a regularly-scheduled meeting with %s",
+		"(?i)^(Standing )?Weekly meeting ": "I have my weekly meeting %s",
+		"(?i)^(conference call:|conference call) ": "I'll be on a conference call with %s",
+		"(?i)^Telephone call: ": "I'm on the phone with %s",
+		"(?i) meeting$": "I'm going to a %s meeting",
+		# Events
+		"(?i)^Attending ": "I'm attending %s",
+		"(?i) retreat$": "I'm holing up in a %s retreat",
+		"(?i) reception$": "I'm receptioning at a %s reception",
+		"(?i)^(Speaking at |Speaking: )": "I'm speaking at %s",
+		"(?i)^Visit from ": "I'm hosting a vist from %s",
+		"(?i)^Serve as": "I'm serving as %s",
+		# Press
+		"(?i)^(Telephone )?Interview with ": "I have an interview with %s",
+		"(?i)^(On air |Call-in |Call in )": "I'll be on air %s",
+		"(?i) taping$": "I'm taping \"%s\"",
+		"(?i)^Press conference: ": "I'm holding a press conference on %s",
+		"(?i)^Press conference with ": "I'm holding a press conference with %s",
+		# Travel
 		"(?i)^Return home ": "I'm going home to Pittsburgh%s! See see you soon.",
 		"(?i)^(Travel|Drive|Driving) to ": "I'm leaving for %s",
 		"(?i)^(Travel|Drive|Driving) from ": "I'm traveling from %s",
-		"(?i)^Serve as": "I'm serving as %s",
+		# Misc
 		"(?i)^Working in office": "%sI'm working in my office until",
 	}
 	
@@ -47,7 +53,8 @@ def writeTweet( event ):
 			message = "I'll be at \"" + event["title"] + "\""
 	
 	# If length is longer than 100 characters, truncate to fit in tweet
-	message = message[:100] + "..." if (len(message) > 100)
+	if (len(message) > 100):
+		message = message[:100] + "..."
 	
 	# Add time element
 	start = datetime.strptime(event["start"], "%H:%M:%S").strftime("%I:%M%p").lstrip("0")
