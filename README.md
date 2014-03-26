@@ -6,11 +6,11 @@ This Python script powers <a href="http://twitter.com/billpedutobot">@BillPeduto
 
 - tweet.py: Queries simple API from sister project <a href="https://github.com/arm5077/wheresbill">Where's Bill</a>, parses response and tweets latest item in schedule.
 - config.py: Contains Twitter bot credential information.
-- sample_data.csv: A commma-separated values file containing a January-March data dump of Mayor Bill Peduto's public schedule. Not needed to run the bot, but helpful to see the kind of stuff Bill Peduto does!
+- sample_data.csv: A comma-separated values file containing a January-March data dump of Mayor Bill Peduto's public schedule. Not needed to run the bot, but helpful to see the kind of stuff Bill Peduto does!
 
 ## How you can help
 
-Right now, @BillPedutoBot is pretty straightforward: It tweets his schedule with a minimum of flair. It needs your help to liven it up!
+Right now, @BillPedutoBot is pretty straightforward: It tweets his schedule with a minimum of flair. It needs help from yinz to liven it up!
 
 Things that need done:
 
