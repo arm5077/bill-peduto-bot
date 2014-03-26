@@ -18,6 +18,9 @@ Things that need done:
 - Figuring out other fun things for @BillPedutoBot to tweet! Maybe an animated GIF of 'Dutes chowing down on pierogies every time his schedule mentions dinner? Just sayin!
 - Anything else you think would increase the public's access to Pittsburgh's mayor and his doings. Extra points for fun. 
 
+## Contact
+If you have any suggestions or ideas for @BillPedutoBot not conducive to Github, shoot me an e-mail at amcgill@post-gazette.com.
+
 ## Setup
 
 To run a bot like BillPedutoBot, you will need to have:
