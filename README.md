@@ -1,6 +1,6 @@
 # Robot Bill Peduto!
 
-This Python script powers @BillPedutoBot, a Twitter bot that shares the Pittsburgh mayor's public schedule with a bit of humor. 
+This Python script powers <a href="http://twitter.com/billpedutobot">@BillPedutoBot</a>, a Twitter bot that shares the Pittsburgh mayor's public schedule with a bit of humor. 
 
 ## Included files:
 
