@@ -38,7 +38,26 @@ def writeTweet( event ):
 		"(?i)^(Travel|Drive|Driving) to ": "I'm leaving for %s",
 		"(?i)^(Travel|Drive|Driving) from ": "I'm traveling from %s",
 		# Misc
-		"(?i)^Working in office": "%sI'm working in my office until",
+		"(?i)^Working in office": "%sI'm working in my office until"
+	}
+	
+	twitter_handles = {
+		# Politicians
+		"(?i)(Allegheny County Executive Rich Fitzgerald)|(Rich Fitzgerald)": "@ACE_Fitzgerald",
+		"(?i)Tom Wolf": "@WolfForPA",
+		"(?i)Council(woman| President) (Darlene )?Harris": "@Darlene4Pgh",
+		"(?i)Councilwoman (Theresa )?(Kail( |-))?Smith": "@Smithdistrict2",
+		"(?i)Councilman (Bruce )?Kraus": "@BruceKraus",
+		"(?i)Councilwoman (Natalia )?Rudiak": "@nataliarudiak",
+		"(?i)Councilman (Corey )?O'Connor": "@CoreyOConnor2",
+		"(?i)Councilman ((R(\.)? )?D(\. |aniel )?)?Lavelle": "@RDLavelle",
+		"(?i)(Councilwoman (Deb(orah)? )?Gross)|(Deb(orah)? Gross)": "@RDLavelle",
+		"(?i)(Councilman)?(Dan(iel)?)? Gilman": "@danielgilman",
+		"(?i)(((Councilman)|(Rev(\.)?)) (Ricky )?Burgess)|(Ricky Burgess)": "@RickyBurgessPgh",
+		# Media
+		"(?i)(Mike )?Pintek": "@mikepintekKDKA",
+		# Other
+		"Wiz Khalifa": "@wizkhalifa"
 	}
 	
 	message = ""
@@ -51,6 +70,10 @@ def writeTweet( event ):
 		else:
 			# If nothing found, use the default message format.
 			message = "I'll be at \"" + event["title"] + "\""
+	
+	# Convert proper names to Twitter handles
+	for name, handle in twitter_handles.iteritems():
+		message = re.sub(name, handle, message)
 	
 	# If length is longer than 100 characters, truncate to fit in tweet
 	if (len(message) > 100):
